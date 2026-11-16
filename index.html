@@ -23,6 +23,8 @@ p{margin:0}
 .lead{font-size:clamp(1.15rem,3.2vw,2.1rem);line-height:1.5;max-width:60rem}
 .pesan{font-size:clamp(1.15rem,2.9vw,2rem);line-height:1.6;max-width:52rem}
 .btn{font:inherit;font-size:clamp(1.1rem,2.4vw,1.7rem);width:min(90%,22rem);padding:.55rem 1rem;border:0;border-radius:999px;background:var(--cream);color:var(--ink);box-shadow:5px 6px 10px rgba(60,40,70,.3);cursor:pointer}
+.nav{display:flex;justify-content:space-between;gap:1rem;width:min(100%,38rem)}
+.nav .btn{width:min(47%,18rem)}
 .btn:active{transform:translateY(1px)}
 button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 #np{display:none;position:fixed;z-index:3;top:var(--pad);left:3.5vw;width:min(34vw,26rem);min-width:220px;text-align:left}
@@ -79,7 +81,7 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 
  <section class="screen s2" data-s="2">
   <p class="pesan">Happy Bday Sayangkuuuuuu!<br>Semoga hari harimu selalu bahagia, segala urusanmu dipermudah dan semua keinginanmu tercapai.<br>Maaf aku cuma bisa kasih ini, hehe.<br>I loveeeee you soooo much.<br><br>-ur lovely gf</p>
-  <button class="btn next" type="button">Next</button>
+  <div class="nav"><button class="btn back" type="button">Back</button><button class="btn next" type="button">Next</button></div>
  </section>
 
  <section class="screen s3" data-s="3">
@@ -89,12 +91,12 @@ button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
    <div class="fw"><div class="fr arch"><img data-foto="3" alt="Foto kenangan 3"></div></div>
    <div class="fw"><div class="fr arch"><img data-foto="4" alt="Foto kenangan 4"></div></div>
   </div>
-  <button class="btn next" type="button">Next</button>
+  <div class="nav"><button class="btn back" type="button">Back</button><button class="btn next" type="button">Next</button></div>
  </section>
 
  <section class="screen s4" data-s="4">
   <ol id="listA" class="lists"></ol>
-  <button class="btn" id="selesai" type="button">Finish</button>
+  <div class="nav"><button class="btn back" type="button">Back</button><button class="btn" id="selesai" type="button">Finish</button></div>
  </section>
 </main>
 
@@ -165,6 +167,7 @@ var LAGU=[
  }
  $("buka").addEventListener("click",function(){putar(0);go(2)});
  document.querySelectorAll(".next").forEach(function(b){b.addEventListener("click",function(){go(cur+1)})});
+ document.querySelectorAll(".back").forEach(function(b){b.addEventListener("click",function(){go(cur-1)})});
  $("selesai").addEventListener("click",function(){audio.pause();audio.currentTime=0;mulai=false;go(1)});
  ui();
 })();
